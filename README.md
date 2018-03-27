@@ -23,4 +23,3 @@ python3 start.py
 
 上述命令执行后，终端会进入Crontab文件的编辑页面。如下图，期中[UserName]为用户的用户名。默认为每小时的0、20、40分。各种输出信息放在用户根目录下的`BingPicture.log`文件中。[Crontab文件的格式](https://www.ibm.com/support/knowledgecenter/zh/ssw_aix_71/com.ibm.aix.cmds1/crontab.htm#crontab__rrnpi36bmary)。输入`:wq`，实现对Crontab文件的保存并退出。
 
-![幕快照 2018-03-27 下午7.31.2](/Users/Lureiny/Desktop/屏幕快照 2018-03-27 下午7.31.24.png)
