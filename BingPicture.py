@@ -7,16 +7,20 @@ import json
 
 def DownloadPicuture():
     ImageUrl, FilePath = GetImageUrl()
-    with open(FilePath, 'wb') as file:
-        try:
-            ReqImage = urllib.request.Request(ImageUrl)
-            Responseimage = urllib.request.urlopen(ReqImage).read()
-        except TimeoutError:
-            print(time.ctime() + ' TimeOut')
-        except:
-            exit(0)
-        file.write(Responseimage)
-    print(time.ctime() + "  The picuture has been saved to " + FilePath)
+    if os.path.exists(FilePath):
+        print(time.ctime() + "  The File has been Download!")
+        pass
+    else:
+        with open(FilePath, 'wb') as file:
+            try:
+                ReqImage = urllib.request.Request(ImageUrl)
+                Responseimage = urllib.request.urlopen(ReqImage).read()
+            except TimeoutError:
+                print(time.ctime() + ' TimeOut')
+            except:
+                exit(0)
+            file.write(Responseimage)
+        print(time.ctime() + "  The picuture has been saved to " + FilePath)
     return FilePath
 
 def MakeFileFolder():
@@ -39,7 +43,7 @@ def GetImageUrl():
 
 def SetDesktop():
     FilePath = DownloadPicuture()
-    command = 'osascript -e "tell application \\\"Finder\\\" to set desktop picture to POSIX file \\\"' + FilePath + '\\\"\"'
+    command = 'osascript -e "tell applidS cation \\\"Finder\\\" to set desktop picture to POSIX file \\\"' + FilePath + '\\\"\"'
     try:
         os.system(command)
         print(time.ctime() + "  The desktop picture has been set up!")
